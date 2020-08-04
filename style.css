@@ -18,11 +18,37 @@
     --color-box-base: #ffffff;
     --color-box-footer: #fafafc;
     --color-small-info: #c1bccc;
-    font-size: 60%;
+    font-size: 60%; /*Controle de medidas rem*/
 }
 
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/*Mede o tamanho pela box não pelo conteudo de dentro */
+}
+html, body {
+    /* 100vh é tudo que pode ser visto no documento */
+    height: 100vh;
+}
 body {
     background-color: var( --color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+body,
+input,
+button,
+textarea {
+    /* rem faz um calculo baseado na porcentagem do tamanho da font definido  */
+    font: 500 1.6rem Poppins;
+    color: var(--color-text-base);
+}
+
+#container {
+    width: 90vw;
+    max-width: 700px;
+}
+
 
