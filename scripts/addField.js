@@ -8,7 +8,7 @@ function cloneField(){
     const fields = newFieldContainer.querySelectorAll('input')
     //para cada field vai executar algo
     fields.forEach(function(field) {
-        fields.value = ""
+        field.value = ""
     })
    
 
