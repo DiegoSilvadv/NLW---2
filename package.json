@@ -1,0 +1,23 @@
+{
+  "name": "NLW---2",
+  "version": "1.0.0",
+  "description": "Site para tutores que queiram dar aulas e para alunos que queiram aprender.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemsrc/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiegoSilvadv/NLW---2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DiegoSilvadv/NLW---2/issues"
+  },
+  "homepage": "https://github.com/DiegoSilvadv/NLW---2#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
