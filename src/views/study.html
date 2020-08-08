@@ -28,7 +28,7 @@
                 <div class="select-block">
                     <label for="subject">Matéria</label>
                     <select name="subject" id="subject">
-                        <option value="" disabled="" hidden="">Selecione uma opção</option>
+                        <option value="0" disabled="" hidden="">Selecione uma opção</option>
                         {%for subject in subjects %}
                             <option value="{{loop.index}}" {{ "selected" if filter.subject == loop.index }} >
                                 {{subject}}
@@ -40,7 +40,7 @@
                 <div class="select-block">
                     <label for="weekday">Dia da semana</label>
                     <select name="weekday" id="weekday">
-                        <option value="" disabled="" hidden="">Selecione uma opção</option>
+                        <option value="0">Selecione uma opção</option>
                         {%for weekday in weekdays %}
                             <option value="{{loop.index}}" {{ "selected" if filter.weekday == loop.index }} >
                                 {{weekday}}
@@ -58,33 +58,35 @@
         </header>
         
         <main>
-            <!-- usando for com nunjuck(template engine) -->
-            {%for proffy in proffys %}
-                <article class="teacher-item">
-                    <header>
-                        <img 
-                            src="{{ proffy.avatar }}" 
-                            alt="{{ proffy.name }}">
-                        <div>
-                            <strong>{{proffy.name}}</strong>
-                            <span>{{ proffy.subject }}</span>
-                        </div>
-                    </header>
-                
-                    <p>{{ proffy.bio }}</p>
-                
-                    <footer>
-                        <p>Preço/hora<strong>R$ {{ proffy.cost }}</strong>
-                        </p>
-                            <a href="https://api.whatsapp.com/send?phone=55{{ proffy.whatsapp }}&text=Olá, tenho interesse na sua aula de {{ proffy.subject }} {{ proffy.name}}" class="button" target="_blank">
-                                <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
-                            </a>
-                    </footer>
-                </article>
-
-            {%endfor%}
-            <!-- article conteudo que será repetido -->
-           
+            {% if proffys == "" %}
+                <p class="no-results">Nenhum professor encontrado com sua pesquisa.</p>
+            {% else %}
+                <!-- usando for com nunjuck(template engine) -->
+                {%for proffy in proffys %}
+                    <article class="teacher-item">
+                        <header>
+                            <img 
+                                src="{{ proffy.avatar }}" 
+                                alt="{{ proffy.name }}">
+                            <div>
+                                <strong>{{proffy.name}}</strong>
+                                <span>{{ proffy.subject }}</span>
+                            </div>
+                        </header>
+                    
+                        <p>{{ proffy.bio }}</p>
+                    
+                        <footer>
+                            <p>Preço/hora<strong>R$ {{ proffy.cost }}</strong>
+                            </p>
+                                <a href="https://api.whatsapp.com/send?phone=55{{ proffy.whatsapp }}&text=Olá, tenho interesse na sua aula de {{ proffy.subject }} {{ proffy.name}}" class="button" target="_blank">
+                                    <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
+                                </a>
+                        </footer>
+                    </article>
+                {%endfor%}
+                <!-- article conteudo que será repetido -->
+            {% endif %}
            
             
         </main>
