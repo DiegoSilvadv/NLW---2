@@ -28,7 +28,7 @@
                 <div class="select-block">
                     <label for="subject">Matéria</label>
                     <select name="subject" id="subject">
-                        <option value="0" disabled="" hidden="">Selecione uma opção</option>
+                        <option value="" disabled="" hidden="">Selecione uma opção</option>
                         {%for subject in subjects %}
                             <option value="{{loop.index}}" {{ "selected" if filter.subject == loop.index }} >
                                 {{subject}}
@@ -40,7 +40,7 @@
                 <div class="select-block">
                     <label for="weekday">Dia da semana</label>
                     <select name="weekday" id="weekday">
-                        <option value="0">Selecione uma opção</option>
+                        <option value="" disabled="" hidden="">Selecione uma opção</option>
                         {%for weekday in weekdays %}
                             <option value="{{loop.index}}" {{ "selected" if filter.weekday == loop.index }} >
                                 {{weekday}}

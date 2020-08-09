@@ -56,7 +56,7 @@
                     <div class="select-block">
                         <label for="subject">Matéria</label>
                         <select name="subject" id="subject" required>
-                            <option value="">Selecione uma opção</option>
+                            <option value="" disabled="" hidden="">Selecione uma opção</option>
                             {%for subject in subjects %}
                                 <option value="{{loop.index}}" {{ "selected" if filter.subject == loop.index }} >
                                     {{subject}}
