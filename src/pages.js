@@ -1,6 +1,7 @@
 const Database = require('./database/db')
 
 const { subjects, weekdays, getSubject, convertHoursToMinutes } = require('./utils/format')
+const { query } = require('express')
 
 function pageLanding(req, res) {
   return res.render("index.html")
@@ -83,9 +84,12 @@ async function saveClasses(req, res) {
         queryString += "&weekday=" + req.body.weekday[0]
         queryString += "&time=" + req.body.time_from[0]
       
-        return res.redirect("/success-proffy" )
-        //return res.redirect("/study" + queryString)
         
+        return res.redirect("/success-proffy" + queryString)
+       
+        //return res.redirect("/success-proffy")  
+        
+        //return res.redirect("/study" + queryString)  
 
     } catch (error) {
         console.log(error)
@@ -94,14 +98,13 @@ async function saveClasses(req, res) {
 }
 //page de success
 function successProffy(req, res){
-  
+  return res.render("success.html")
+  Ola
+}
 
-  setTimeout(() => {
-    return res.redirect("/study" )
-  }, 2000);
-    
-
+function ABC(req, res){
   
+  return res.redirect("/study")
 }
 
 module.exports = {
@@ -109,5 +112,7 @@ module.exports = {
     pageStudy,
     pageGiveClasses,
     saveClasses,
-    successProffy
+    successProffy,
+    ABC
+    
 }
