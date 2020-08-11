@@ -3,7 +3,7 @@
 //servidor
 const express = require('express')
 const server = express()
-const { pageLanding, pageStudy, pageGiveClasses, saveClasses, successProffy, ABC} = require('./pages')
+const { pageLanding, pageStudy, pageGiveClasses, saveClasses, successProffy} = require('./pages')
 
 
 //configurar nunjucks(template engine)
@@ -13,10 +13,7 @@ nunjucks.configure('src/views', {
     noCache: true,
 })
 
-//receber dados do req.body
-
 //inicio e configuração do servidor
-
 server
 .use(express.urlencoded({ extended: true }))
 //configurar arquivos estáticos (css, scripts, imagens)
@@ -27,7 +24,7 @@ server
 .get("/study", pageStudy)
 .get("/give-classes", pageGiveClasses )
 .post("/save-classes", saveClasses )
-.get("/success-proffy", successProffy, ABC )
+.get("/success-proffy", successProffy )
 //start do servidor
 .listen(5500)
 
